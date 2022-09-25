@@ -1,8 +1,8 @@
-* {
+/** {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+}*/
 
 body {
   margin: 20px;
@@ -16,4 +16,12 @@ body {
   margin-top: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.wrapper {
+    padding: 5px 20px;
+}
+
+.wrapper fieldset {
+    margin: 20px 0;
 }

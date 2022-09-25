@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
-import '../EducationalExp/EducationalExp.css';
 
 class PracticalExp extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+
   render() {
+    const { user } = this.props
+    const compName = user.companyName
+    const position = user.positionTitle
+    const jobTasks = user.jobTasks
+    const dateEmployed = user.dateEmployed
     return (
       <div>
-        <h4 className="heading-space">Practical Experience</h4>
-        <h5>#100Devs</h5>
-        <p>Software Engineer</p>
-        <p>Maintaining the backend</p>
-        <p>2020 - 2022</p>
+        <h4 className="heading-space text-xl">Practical Experience</h4>
+        <hr/>
+        <h5>{compName ? compName : 'Krusty Krabs'}</h5>
+        <p>{position ? position : 'Manager'}</p>
+        <p>{jobTasks ? jobTasks : 'Counting moneeey'}</p>
+        <p>{dateEmployed ? dateEmployed : '2020 - 2022'}</p>
       </div>
     );
   }
 }
 export default PracticalExp;
-//  (company name, position title, main tasks of your jobs, date from and until when you worked for that company)

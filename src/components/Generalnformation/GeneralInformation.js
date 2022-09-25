@@ -1,41 +1,25 @@
 import React, { Component } from 'react';
-import './GeneralInformation.css';
 
 class GeneralInformation extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   console.log('jh');
-  // }
-
-  
   render() {
-    console.log('info- ',this.props.info.name);
+    const { user } = this.props
+    const name = user.name 
+    const phone = user.phone 
+    const mail = user.email
     return (
-      <div>
-        {/* <h2>General Informaton</h2> */}
-        {/* {this.props.info.map((data) => {
-          return (
-            <div className="flex btn-aside">
-              <h4 key={data.id}>Name: {data.name}</h4>
-              <button className='border-2' type="button">Edit</button>
-            </div>
-          );
-        })} */}
-
-{/* id: uniqid(), */}
-            <div className="flex gap-5 items-center justify-between">
-              <h4>{this.props.info.name}</h4>
-              {/* <button type="button">Edit</button> */}
-            </div>
-        
-      </div>
+      <div className='h-17'>
+      <h2 className='text-3xl'>
+        {name ? name : 'lorem ipsum'}
+      </h2>
+      <section>
+        {
+          phone || mail ? <span>{user.email} | {user.phone} </span>: 'mail | number' 
+        }
+      </section>
+      <hr/>
+     </div>
     );
   }
 }
 
 export default GeneralInformation;
-// name, email, phone number.
-// <div className="flex">
-//               <p>{info.email}</p>
-//               <p>{info.phoneNum}</p>
-//             </div>

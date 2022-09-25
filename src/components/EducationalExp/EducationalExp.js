@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import './EducationalExp.css';
 
 class EducationalExp extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
   render() {
+    const { user } = this.props
+    const schoolName = user.schoolName
+    const studyDuration = user.studyDuration
+    const titleOfStudy = user.titleOfStudy
     return (
-      <div className="divider">
-        <h4 className="heading-space">Education</h4>
-        <h5>University of Lagos</h5>
-        <p>Political Science</p>
-        <p>2016 -2020</p>
+      <div>
+        <h2 className='text-xl'>Educational Experience</h2>
+        <hr/>
+        <h4> {schoolName ? schoolName : 'Bikini Bottom'}</h4>
+        <p>{titleOfStudy ? titleOfStudy : 'Business Mathematics'}</p>
+        <small>{studyDuration ? studyDuration : '2016 - 2020'}</small>
       </div>
     );
   }
 }
 export default EducationalExp;
-// (school name, title of study, date of study)

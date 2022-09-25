@@ -3,85 +3,57 @@ import './App.css';
 import EducationalExp from '../EducationalExp/EducationalExp';
 import GeneralInformation from '../Generalnformation/GeneralInformation';
 import PracticalExp from '../PracticalExp/PracticalExp';
-import Form from '../Form/Form';
-// import uniqid from 'uniqid';
+import Form from '../Form/Form'
 
 class App extends Component {
-  // constructor() {
-  //   super();
+  constructor() {
+    super();
 
-  //   this.state = {
-  //     info: {
-  //       name: '',
-       
-  //     },
-  //     infos: [],
-  //   };
-  // }
+    this.state = {
+      info: {
+        name: '',
+        email: '',
+        phone: '',
+        schoolName: '',
+        titleOfStudy: '',
+        studyDuration: '',
+        companyName: '',
+        positionTitle: '',
+        jobTasks: '',
+        dateEmployed: '',
+      },
+    };
+  }
 
-  // handleChange = (event) => {
-  //   this.setState({
-  //     info: {
-  //       name: event.target.value,
-  //     },
-  //   });
-  // };
-
-  // handleSubmit = (event) => {
-  //   event.preventDefault();
-
-  //   this.setState({
-  //     infos: this.state.infos.concat(this.state.info),
-  //     info: {
-  //       name: event.target.value,
-  //     },
-  //   });
-  // };
+  onChange = (event) => {
+    event.preventDefault()
+    const {info} = this.state
+    this.setState({
+      info: {
+        ...info,[event.target.name]: event.target.value,
+      },
+    });
+  };
 
   render() {
-    const {  info } = this.state;
-    console.log(info);
+    const {info} = this.state
 
     return (
       <>
-        <GeneralInformation info={info} />
-        <div className="content">
-          <EducationalExp />
-          <PracticalExp />
-        </div>
-        <Form/>
-
-        {/* <div>
-          <h3>General Informaton</h3>
-
-          <form onSubmit={this.handleSubmit}>
-            <label>Name: </label>
-            <input
-              onChange={this.handleChange}
-              value={info.name}
-              type="text"
-              id="name"
-              className='border-solid border-2'
-            />
-            <button type="submit">submit</button>
-          </form>
-        </div> */}
+      <h1 className='text-center'>RESUME BUILDER</h1>
+    <div className="wrapper flex gap-5">
+  
+     <div className='w-2/4 border border-black rounded flex flex-col gap-5'>
+       <GeneralInformation user={info}/>
+       <EducationalExp user={info}/>
+       <PracticalExp user={info}/>      
+     </div> 
+    
+      <Form info={info} change={this.onChange} />
+    </div>
       </>
     );
   }
 }
-
-// function App(props) {
-//   return (
-//     <>
-//       <GeneralInformation info={infos} />
-//       <div className="content">
-//         <EducationalExp />
-//         <PracticalExp />
-//       </div>
-//       <Form />
-//     </>
-//   );
-// }
 
 export default App;
